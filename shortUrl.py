@@ -1,6 +1,7 @@
-from bitlyshortener import Shortener
 import tkinter as tk
 import settings
+from bitlyshortener import Shortener
+
 
 tokens_pool = [settings.BITLY_TOKEN]
 shortener = Shortener(tokens=tokens_pool, max_cache_size=8192)
