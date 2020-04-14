@@ -15,15 +15,24 @@ label.pack()
 entry = tk.Entry()
 entry.pack()
 
+
 def shorten():
     d = entry.get()
     url = [d]
+    global s
     s = shortener.shorten_urls(url)
 
-    w = tk.Message(window, text=f'{d}: {s[0]}\n\nCopied to Clipboard')
+    w = tk.Message(window, text=f'{d}: {s[0]}')
     w.config(width=300)
     w.pack()
 
+    clipboard_button()
+
+def clipboard_button():
+    n = tk.Button(window,text='Copy to Clipboard', command=append_to_clipboard)
+    n.pack()
+
+def append_to_clipboard():
     window.clipboard_clear()
     window.clipboard_append(s)
 
